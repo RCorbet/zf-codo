@@ -18,10 +18,10 @@
         APPLICATION_PATH . '/configs/application.ini'
     );
     
-    require '../../library/Zcodo/Codegen/Manager.php';
+    require '../../library/ZFcodo/Codegen/Manager.php';
     
     $qzfConfig = $application->getOption('zq');
-    $manager = new Zcodo_Manager($qzfConfig);
+    $manager = new ZFcodo_Manager($qzfConfig);
 
     $manager->loadOrm();
     //run the codegen

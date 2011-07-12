@@ -8,10 +8,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
     protected function _initZcodo()
     {
-        require APPLICATION_PATH . '/../library/Zcodo/Codegen/Manager.php';
+        require APPLICATION_PATH . '/../library/ZFcodo/Codegen/Manager.php';
             
         $zqConfig = $this->getOption('zq');
-        $manager = new Zcodo_Manager($zqConfig);
+        $manager = new ZFcodo_Manager($zqConfig);
         $manager->loadOrm(); 
     }
 }
