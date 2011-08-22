@@ -85,7 +85,7 @@ class ZFcodo_Manager {
                 'profiling' => false)));
         
         if ((function_exists('date_default_timezone_set')) && (!ini_get('date.timezone'))) 
-                date_default_timezone_set('America/Los_Angeles');
+                date_default_timezone_set('Europe/London');
                 
         define('__FORM_STATE_HANDLER__', 'QFormStateHandler');          
         // If using the QFileFormStateHandler, specify the path where QCubed will save the session state files (has to be writeable!)
@@ -101,7 +101,10 @@ class ZFcodo_Manager {
     
     public function loadOrm()
     {
-        $this->defineConstants();
+        //Fix to prevent PHPUnit throwing a "Constant ALLOW_REMOTE_ADMIN already defined" message during testing.
+    	if(!defined('ALLOW_REMOTE_ADMIN')) {
+    	        $this->defineConstants();
+    	}
         require ("ZFcodo/Codegen/prepend.php");
     } 
     
